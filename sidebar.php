@@ -11,7 +11,7 @@
                 </a>
             </li>
             
-            <?php // if ($session_urole == 2) { ?>
+            <?php  if ($session_urole == 2) { ?>
             
             <!-- Company owner -->
             <li class="nav-item dropdown">
@@ -41,8 +41,8 @@
                     </li>
                 </ul>
             </li>
-            <?php // } ?>
-            <?php //if ($session_urole == 3) { ?>
+            <?php  } ?>
+            <?php if ($session_urole == 4) { ?>
             <!-- For Safety Officer -->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
@@ -71,8 +71,8 @@
                     <span class="title">Maintenance</span>
                 </a>
             </li>
-            <?php //} ?>
-            <?php //if ($session_urole == 1) { ?>
+            <?php } ?>
+            <?php if ($session_urole == 1) { ?>
             <li class="nav-item dropdown">
                
                 <a class="dropdown-toggle" href="javascript:void(0);">
@@ -159,7 +159,7 @@
                     </li>
                 </ul>
             </li>
-            <?php //} ?>
+            <?php } ?>
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="logout.php">
                     <span class="icon-holder">
