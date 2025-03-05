@@ -44,42 +44,63 @@
                         <div class="card-body">
                             <div class="row m-b-30">
                                 <div class="col-lg-12">
-                                    <form action="control/cus_ext_process.php?action=<?php echo $action; ?>" method="post" enctype= multipart/form-data >
+                                <form action="control/ext_maintenance.php?action=<?php echo $action; ?>" method="post" enctype= multipart/form-data >
                                         <div class="form-row">
-                                            <div class="form-group col-md-5">
+                                            <div class="form-group col-md-6">
                                                 <label for="serial_no">Serial Number</label>
-                                                <input name="serial_no" type="text" class="form-control" id="serial_no" value="<?php echo isset($_GET['key'])?$row['serial_no']:''; ?>" required >
+                                                <input name="serial_no" type="text" class="form-control" id="serial_no" value="<?php echo isset($_GET['key'])?$row['serial_no']:''; ?>" disabled >
                                             </div>
-                                            <div class="form-group col-md-7">
+                                            <div class="form-group col-md-6">
                                                 <label for="build">Installed Date</label>
-                                                <input name="install_date" type="date" class="form-control" id="build"  value="<?php echo isset($_GET['key'])?$row['install_date']:''; ?>" >
+                                                <input disabled name="bj" type="number" class="form-control" id="build" min="1850" max="2500"  value="<?php echo isset($_GET['key'])?$row['bj']:''; ?>" >
                                                 <?php if(isset($_GET['key'])){ ?><input type="hidden" name="key" value="<?php echo $key; ?>" > <?php } ?>
                                             </div>
                                         </div>
+                                       
                                         <div class="form-row">
-                                            <div class="form-group col-md-5">
-                                                <label for="status">Status</label>
-                                                <input name="status" type="text" class="form-control" id="status" value="<?php echo isset($_GET['key'])?$row['status']:''; ?>">
+                                            <div class="form-group col-md-6">
+                                                <label for="location_img">location Image</label>
+                                                <input disabled name="location_img" type="file" class="form-control" id="location_img" value="<?php echo isset($_GET['key'])?$row['location_img']:''; ?>">
                                             </div>
-                                            <div class="form-group col-md-7">
-                                                <label for="location">location</label>
-                                                <input name="location" type="text" class="form-control" id="location" placeholder="location" value="<?php echo isset($_GET['key'])?$row['location']:''; ?>" required >
+                                            <div class="form-group col-md-6">
+                                                <label for="gps">GPS</label>
+                                                <input disabled name="gps" type="text" class="form-control" id="gps" placeholder="gps" value="<?php echo isset($_GET['key'])?$row['gps']:''; ?>" >
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <div class="form-group col-md-5">
-                                                <label for="location_img">location Image</label>
-                                                <input name="location_img" type="file" class="form-control" id="location_img" value="<?php echo isset($_GET['key'])?$row['location_img']:''; ?>">
+                                            <div class="form-group col-md-6">
+                                                <label for="desc_short">Short Description</label>
+                                                <input name="desc_short" type="text" class="form-control" id="desc_short" value="<?php echo isset($_GET['key'])?$row['desc_short']:''; ?>">
                                             </div>
-                                            <div class="form-group col-md-7">
-                                                <label for="last_checked">Last Checked</label>
-                                                <input name="last_checked" type="date" class="form-control" id="last_checked" placeholder="last_checked" value="<?php echo isset($_GET['key'])?$row['last_checked']:''; ?>" >
+                                            <div class="form-group col-md-6">
+                                                <label for="dec_long">Long Description</label>
+                                                <input name="dec_long" type="text" class="form-control" id="dec_long" placeholder="dec_long" value="<?php echo isset($_GET['key'])?$row['dec_long']:''; ?>" required >
                                             </div>
-                                        </div>  
+                                        </div>
                                         <div class="form-row">
-                                            <div class="form-group col-md-5">
+                                            <div class="form-group col-md-6">
+                                                <label for="damage">Damage</label>
+                                                <input name="damage" type="text" class="form-control" id="damage" value="<?php echo isset($_GET['key'])?$row['damage']:''; ?>">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="test_interval">Test Interval</label>
+                                                <input name="test_interval" type="text" class="form-control" id="test_interval" placeholder="test_interval" value="<?php echo isset($_GET['key'])?$row['test_interval']:''; ?>" >
+                                            </div>
+                                        </div> 
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="checked_on">Last Checked</label>
+                                                <input disabled name="checked_on" type="date" class="form-control" id="checked_on" placeholder="checked_on" value="<?php echo isset($_GET['key'])?$row['checked_on']:''; ?>" >
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="next_check">Next Check</label>
+                                                <input disabled name="next_check" type="date" class="form-control" id="next_check" value="<?php echo isset($_GET['key'])?$row['next_check']:''; ?>">
+                                            </div>
+                                        </div> 
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
                                                 <label for="location">Owner</label>
-                                                <select name="cus_id" id="cus_id" class="form-control" required >
+                                                <select disabled name="cus_id" id="cus_id" class="form-control" required >
                                                     <option >Choose...</option>
                                                     <?php
                                                     //get User Roles
@@ -95,9 +116,9 @@
                                                         }  ?> ><?php echo $row1['name']; ?></option> <?php } ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-7">
+                                            <div class="form-group col-md-6">
                                                 <label for="address">Fire Extinguisher</label>
-                                                <select required name="ext_id" id="ext_id" class="form-control" >
+                                                <select disabled required name="ext_id" id="ext_id" class="form-control" >
                                                     <option >Choose...</option>
                                                     <?php
                                                     //get User Roles 
@@ -114,11 +135,11 @@
                                             </div>
                                         </div>
                                         <!-- <div class="form-row">
-                                            <div class="form-group col-md-5">
+                                            <div class="form-group col-md-6">
                                                 <label for="image">Image</label>
                                                 <input name="image" type="file" class="form-control" id="image" >
                                             </div>
-                                            <div class="form-group col-md-7">
+                                            <div class="form-group col-md-6">
                                                <?php if(isset($_GET['key'])){  ?><img src="<?php echo $image; ?>" style="height:150px; width: auto;" /> <?php } ?>
                                             </div>
                                         </div>   -->

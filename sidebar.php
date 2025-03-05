@@ -42,7 +42,7 @@
                 </ul>
             </li>
             <?php  } ?>
-            <?php if ($session_urole == 4) { ?>
+            <?php if ($session_urole == 3) { ?>
             <!-- For Safety Officer -->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">

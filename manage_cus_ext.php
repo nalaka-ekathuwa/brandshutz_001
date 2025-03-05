@@ -56,6 +56,17 @@
                                                 <?php if(isset($_GET['key'])){ ?><input type="hidden" name="key" value="<?php echo $key; ?>" > <?php } ?>
                                             </div>
                                         </div>
+                                       
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="location_img">location Image</label>
+                                                <input name="location_img" type="file" class="form-control" id="location_img" value="<?php echo isset($_GET['key'])?$row['location_img']:''; ?>">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="gps">GPS</label>
+                                                <input name="gps" type="text" class="form-control" id="gps" placeholder="gps" value="<?php echo isset($_GET['key'])?$row['gps']:''; ?>" >
+                                            </div>
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="desc_short">Short Description</label>
@@ -66,16 +77,6 @@
                                                 <input name="dec_long" type="text" class="form-control" id="dec_long" placeholder="dec_long" value="<?php echo isset($_GET['key'])?$row['dec_long']:''; ?>" required >
                                             </div>
                                         </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="location_img">location Image</label>
-                                                <input name="location_img" type="file" class="form-control" id="location_img" value="<?php echo isset($_GET['key'])?$row['location_img']:''; ?>">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="gps">GPS</label>
-                                                <input name="gps" type="text" class="form-control" id="gps" placeholder="gps" value="<?php echo isset($_GET['key'])?$row['gps']:''; ?>" >
-                                            </div>
-                                        </div>  
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="damage">Damage</label>

@@ -101,10 +101,10 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Cus Number</th>
                                             <th>Name</th>
-                                            <th>Buit year</th>
-                                            <th>Tax No</th>
-                                            <th>Mobile</th>
+                                            <th>Postal Code</th>
+                                            <th>Contact Person</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -117,20 +117,13 @@
                                         $result = mysqli_query($conn, $sql);
                                         $no = 1;
                                         while ($row = mysqli_fetch_assoc($result)) {
-
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['build_year']; ?></td>
-                                                <td><?php echo $row['tax_no']; ?></td>
-                                                <td><?php echo $row['mobile']; ?></td>
-                                                <!-- <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="badge badge-success badge-dot m-r-10"></div>
-                                                        <div>Approved</div>
-                                                    </div>
-                                                </td> -->
+                                             ?>
+                                             <tr>
+                                                 <td><?php echo $no++; ?></td>
+                                                 <td><?php echo $row['cus_number']; ?></td>
+                                                 <td><?php echo $row['salutation'].'. '.$row['first_name'].' '.$row['last_name']; ?></td>
+                                                 <td><?php echo $row['postal_code']; ?></td>
+                                                 <td><?php echo $row['contact_person']; ?></td>
                                                 <td class="text-right">
                                                     <a href="#" id="view_customer"
                                                         onclick="loadEquipmentTable(<?php echo $row['owner']; ?>)"
@@ -149,7 +142,7 @@
                     </div>
 
                     <div id="equipment_section">
-                       
+
                     </div>
 
                 </div>
